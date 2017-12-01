@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.workshop.web.mechanic.MechanicBrowse"
+        focusComponent="mechanicsTable"
+        lookupComponent="mechanicsTable"
+        messagesPack="com.company.workshop.web.mechanic"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <dsContext>
+        <groupDatasource id="mechanicsDs"
+                         class="com.company.workshop.entity.Mechanic"
+                         view="mechanic-view">
+            <query>
+                <![CDATA[select e from workshop$Mechanic e]]>
+            </query>
+        </groupDatasource>
+        <valueCollectionDatasource id="ratingDs">
+            <query>
+                <![CDATA[select o.mechanic.user, count(o.id) 
+from workshop$Order o 
+group by o.mechanic
+]]>
+            </query>
+            <properties>
+                <property class="com.company.workshop.entity.Mechanic"
+                          name="mechanic"/>
+                <property datatype="long"
+                          name="count"/>
+            </properties>
+        </valueCollectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="mechanicsTable"
+            spacing="true">
+        <chart:pieChart id="ratingChart"
+                        datasource="ratingDs"
+                        height="200px"
+                        titleField="mechanic"
+                        valueField="count"
+                        width="100%">
+            <chart:legend position="LEFT"/>
+        </chart:pieChart>
+        <filter id="filter"
+                applyTo="mechanicsTable"
+                datasource="mechanicsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="mechanicsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="user"/>
+                <column id="hourlyRate"/>
+            </columns>
+            <rows datasource="mechanicsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="mechanicsTable.create"/>
+                <button id="editBtn"
+                        action="mechanicsTable.edit"/>
+                <button id="removeBtn"
+                        action="mechanicsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

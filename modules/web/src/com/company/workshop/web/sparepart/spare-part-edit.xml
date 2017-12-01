@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.workshop.web.sparepart.SparePartEdit"
+        datasource="sparePartDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.workshop.web.sparepart">
+    <dsContext>
+        <datasource id="sparePartDs"
+                    class="com.company.workshop.entity.SparePart"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="sparePartDs">
+            <column width="250px">
+                <field property="title"/>
+                <field property="description"
+                       rows="5"/>
+                <field property="price"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
