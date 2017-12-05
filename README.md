@@ -2,17 +2,17 @@
 
 This Hands-on-Lab covers basic and most used features of the CUBA Platform, including development approach and runtime features of the platform. It will learn you how to accelerate development of enterprise applications, taking bicycle workshop system as an example. 
 
-## Environment Required
+### Environment Required
 * [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/) with [CUBA plugin](https://plugins.jetbrains.com/plugin/7249?pr=) installed
 * [CUBA Studio](https://www.cuba-platform.com/download) version 6.7+
 
-## Time
+### Time
  Estimated time to complete this lab is 3 hours.
  The estimation is given for developers,
 who have general (basic) knowledge
 of Java SE.
 
-## You will learn how to
+### You Will Learn How to
  * Create a project on the CUBA Platform
  * Define a data model and create a database
  * Auto-generate CRUD UI and customise it
@@ -24,5 +24,5 @@ of Java SE.
  * Create charts and reports 
  * Use CUBA REST API
 
-## Step by Step Guide
+### Step by Step Guide
 The complete guide and the code snippets you can find on the [wiki pages](https://github.com/gerlandiya/workshop-premium/wiki). 
