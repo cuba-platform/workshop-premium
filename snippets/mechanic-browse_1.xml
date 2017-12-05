@@ -1,0 +1,8 @@
+<chart:pieChart id="ratingChart"
+                datasource="ratingDs"
+                height="200px"
+                titleField="mechanic"
+                valueField="count"
+                width="100%">
+    <chart:legend position="LEFT"/>
+</chart:pieChart>
